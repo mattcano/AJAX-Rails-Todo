@@ -24,6 +24,9 @@ class TodosController < ApplicationController
   # GET /todos/new
   # GET /todos/new.json
   def new
+    @todos = Todo.all
+    @complete_todos = Todo.where(:completed => true)
+    @inc_todos = Todo.where(:completed => false)
     @todo = Todo.new
 
     respond_to do |format|

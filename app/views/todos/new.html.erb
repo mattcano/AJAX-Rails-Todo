@@ -13,18 +13,80 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+  <span class="field">
     <%= f.text_field :name %>
-  </div>
+  </span>
+  <span class="actions">
+    <%= f.submit %>
+  </span>
+
   <div class="field">
     <%= f.label :completed %><br />
     <%= f.check_box :completed %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
+
+<h1>Incomplete Todos</h1>
+
+<ul id="inc-todos">
+  <% @inc_todos.each do |todo| %>
+    <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><button>Delete</button></li>
+  <%end%>
+</ul>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Completed</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @inc_todos.each do |todo| %>
+  <tr>
+    <td><%= todo.name %></td>
+    <td><%= todo.completed %></td>
+    <td><%= link_to 'Show', todo %></td>
+    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+    <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h1>Complete Todos</h1>
+
+<ul id="complete-todos">
+  <% @complete_todos.each do |todo| %>
+    <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><button>Delete</button></li>
+  <%end%>
+</ul>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Completed</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @complete_todos.each do |todo| %>
+  <tr>
+    <td><%= todo.name %></td>
+    <td><%= todo.completed %></td>
+    <td><%= link_to 'Show', todo %></td>
+    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+    <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
 
 <h1>Listing todos</h1>
 
