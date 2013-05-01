@@ -33,29 +33,8 @@
   <% @inc_todos.each do |todo| %>
     <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><button>Delete</button></li>
   <%end%>
-</ul>
+</ul><br />
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Completed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @inc_todos.each do |todo| %>
-  <tr>
-    <td><%= todo.name %></td>
-    <td><%= todo.completed %></td>
-    <td><%= link_to 'Show', todo %></td>
-    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-    <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
 
 <h1>Complete Todos</h1>
 
@@ -63,53 +42,4 @@
   <% @complete_todos.each do |todo| %>
     <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><button>Delete</button></li>
   <%end%>
-</ul>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Completed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @complete_todos.each do |todo| %>
-  <tr>
-    <td><%= todo.name %></td>
-    <td><%= todo.completed %></td>
-    <td><%= link_to 'Show', todo %></td>
-    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-    <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-
-<h1>Listing todos</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Completed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @todos.each do |todo| %>
-  <tr>
-    <td><%= todo.name %></td>
-    <td><%= todo.completed %></td>
-    <td><%= link_to 'Show', todo %></td>
-    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-    <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Todo', new_todo_path %>
+</ul><br />
