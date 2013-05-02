@@ -1,4 +1,4 @@
-<h1>Get Shit Done</h1>
+<h1>Get. Shit. Done.</h1>
 
 <%= form_for(@todo) do |f| %>
   <% if @todo.errors.any? %>
@@ -20,26 +20,21 @@
     <%= f.submit %>
   </span>
 
-  <div class="field">
-    <%= f.label :completed %><br />
-    <%= f.check_box :completed %>
-  </div>
-
 <% end %>
 
-<h1>Incomplete Todos</h1>
+<h2>Incomplete Todos</h2>
 
-<ul id="inc-todos">
+<ul id="inc-todos" class="inc-todos">
   <% @inc_todos.each do |todo| %>
-    <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><button>Delete</button></li>
+    <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><a href='/todos/<%= todo.id %>' data-confirm='Are you sure?' data-method='delete' rel='nofollow'>Destroy</a></li>
   <%end%>
-</ul><br />
+</ul>
 
 
-<h1>Complete Todos</h1>
+<h2>Complete Todos</h2>
 
-<ul id="complete-todos">
+<ul id="complete-todos" class="complete-todos">
   <% @complete_todos.each do |todo| %>
-    <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><button>Delete</button></li>
+    <li><input type="checkbox" <%= "checked" if todo.completed %>><%= todo.name %><a href='/todos/<%= todo.id %>' data-confirm='Are you sure?' data-method='delete' rel='nofollow'>Destroy</a></li>
   <%end%>
-</ul><br />
+</ul>
